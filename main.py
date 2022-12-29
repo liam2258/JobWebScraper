@@ -194,24 +194,24 @@ time.sleep(4)
 firefox.find_element(By.CLASS_NAME, "modal_closeIcon-svg").click()
 time.sleep(4)
 #Click show more button to get full job description
-firefox.find_element(By.CLASS_NAME, "css-t3xrds.e856ufb2").click()
+firefox.find_element(By.CLASS_NAME, "css-t3xrds.e856ufb4").click()
 
 #Loop over the desired amount of job pages
 for x in range(30):
     #Fetch all data on current page and store them in lists
     jobList = firefox.find_elements(By.CLASS_NAME, "react-job-listing")
     companies = firefox.find_elements(By.CLASS_NAME, 'd-flex.justify-content-between.align-items-start')
-    titles = firefox.find_elements(By.CLASS_NAME, 'jobLink.eigr9kq1')
-    locations = firefox.find_elements(By.CLASS_NAME, 'css-1buaf54.pr-xxsm.e1rrn5ka4')
-
+    titles = firefox.find_elements(By.CLASS_NAME, 'jobLink.css-1rd3saf.eigr9kq3')
+    locations = firefox.find_elements(By.CLASS_NAME, 'css-3g3psg.pr-xxsm.css-iii9i8.e1rrn5ka0')
+    
     #Fetch description of each job on the page and then instert data into csv file
     for idx, item in enumerate(jobList):
         jobList[idx].click()
         time.sleep(7)
-        firefox.find_element(By.CLASS_NAME, "css-t3xrds.e856ufb2").click()
+        firefox.find_element(By.CLASS_NAME, "css-t3xrds.e856ufb4").click()
         time.sleep(7)
         company = companies[idx].text
-        title = titles[idx].text
+        title = titles[idx].text #Needs fixing
         location = filter_location(locations[idx].text)
         desc = firefox.find_element(By.CLASS_NAME, 'jobDescriptionContent.desc').text
         lang = filter_languages(desc)
