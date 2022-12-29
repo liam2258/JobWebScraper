@@ -154,7 +154,7 @@ def next_page():
     firefox.find_element(By.CLASS_NAME, "nextButton").click()
     time.sleep(7)
 
-#Create initila csv file
+#Create initial csv file
 with open('job_data.csv', 'w') as new_file:
     csv_writer = csv.writer(new_file, lineterminator = '\n')
     csv_writer.writerow([
