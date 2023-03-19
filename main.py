@@ -211,7 +211,7 @@ for x in range(30):
         firefox.find_element(By.CLASS_NAME, "css-t3xrds.e856ufb4").click()
         time.sleep(7)
         company = companies[idx].text
-        title = titles[idx].text #Needs fixing
+        title = titles[idx].text
         location = filter_location(locations[idx].text)
         desc = firefox.find_element(By.CLASS_NAME, 'jobDescriptionContent.desc').text
         lang = filter_languages(desc)
