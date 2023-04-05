@@ -3,113 +3,6 @@ from selenium.webdriver.common.by import By
 import time
 import csv
 
-#Funcion to normalize location data by state abbreviation
-def filter_location(loc):
-    if 'AL' in loc:
-        return 'AL'
-    elif 'AK' in loc:
-        return 'AK'
-    elif 'AZ' in loc:
-        return 'AZ'
-    elif 'AR' in loc:
-        return 'AR'
-    elif 'CA' in loc:
-        return 'CA'
-    elif 'CO' in loc:
-        return 'CO'
-    elif 'CT' in loc:
-        return 'CT'
-    elif 'DE' in loc:
-        return 'DE'
-    elif 'FL' in loc:
-        return 'FL'
-    elif 'GA' in loc:
-        return 'GA'
-    elif 'HI' in loc:
-        return 'HI'
-    elif 'ID' in loc:
-        return 'ID'
-    elif 'IL' in loc:
-        return 'IL'
-    elif 'IN' in loc:
-        return 'IN'
-    elif 'IA' in loc:
-        return 'IA'
-    elif 'KS' in loc:
-        return 'KS'
-    elif 'KY' in loc:
-        return 'KY'
-    elif 'LA' in loc:
-        return 'LA'
-    elif 'ME' in loc:
-        return 'ME'
-    elif 'MD' in loc:
-        return 'MD'
-    elif 'MA' in loc:
-        return 'MA'
-    elif 'MI' in loc:
-        return 'MI'
-    elif 'MN' in loc:
-        return 'MN'
-    elif 'MS' in loc:
-        return 'MS'
-    elif 'MO' in loc:
-        return 'MO'
-    elif 'MT' in loc:
-        return 'MT'
-    elif 'NE' in loc:
-        return 'NE'
-    elif 'NV' in loc:
-        return 'NV'
-    elif 'NH' in loc:
-        return 'NH'
-    elif 'NJ' in loc:
-        return 'NJ'
-    elif 'NM' in loc:
-        return 'NM'
-    elif 'NY' in loc:
-        return 'NY'
-    elif 'NC' in loc:
-        return 'NC'
-    elif 'ND' in loc:
-        return 'ND'
-    elif 'OH' in loc:
-        return 'OH'
-    elif 'OK' in loc:
-        return 'OK'
-    elif 'OR' in loc:
-        return 'OR'
-    elif 'PA' in loc:
-        return 'PA'
-    elif 'RI' in loc:
-        return 'RI'
-    elif 'SC' in loc:
-        return 'SC'
-    elif 'SD' in loc:
-        return 'SD'
-    elif 'TN' in loc:
-        return 'TN'
-    elif 'TX' in loc:
-        return 'TX'
-    elif 'UT' in loc:
-        return 'UT'
-    elif 'VT' in loc:
-        return 'VT'
-    elif 'VA' in loc:
-        return 'VA'
-    elif 'WA' in loc:
-        return 'WA'
-    elif 'WV' in loc:
-        return 'WV'
-    elif 'WI' in loc:
-        return 'WI'
-    elif 'WY' in loc:
-        return 'WY'
-    elif 'Remote' in loc:
-        return 'Remote'
-    else:
-        return ''
-
 #Function searches job description and returns an array of all mentioned programming languages
 def filter_languages(desc):
     lang = [0] * 16
@@ -212,7 +105,7 @@ for x in range(30):
         time.sleep(7)
         company = companies[idx].text
         title = titles[idx].text
-        location = filter_location(locations[idx].text)
+        location = locations[idx].text
         desc = firefox.find_element(By.CLASS_NAME, 'jobDescriptionContent.desc').text
         lang = filter_languages(desc)
         
